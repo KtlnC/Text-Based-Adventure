@@ -2,6 +2,12 @@ package Haunted_House;
 import java.util.Scanner;
 
 import Haunted_House.Person.Player;
+
+/**
+ * Authors: Lamia Islam & Kaitlyn Cao
+ * Created: 10/30/17
+ * Description: Explore a spooky haunted house and catch ghosts.
+ * */
 public class Runner {
 	public static void main(String[]args)
 	{
