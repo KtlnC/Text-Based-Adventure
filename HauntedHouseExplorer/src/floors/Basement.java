@@ -1,4 +1,4 @@
-package Haunted_House;
+package floors;
 
 public class Basement {
 
