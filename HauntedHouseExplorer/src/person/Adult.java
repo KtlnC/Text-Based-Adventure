@@ -6,4 +6,5 @@ public class Adult extends Person{
 	{
 		super(name,age);
 	}
+	
 }
