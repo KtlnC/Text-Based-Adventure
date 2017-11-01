@@ -15,6 +15,7 @@ public class Utilities {
 	}
 	public static void randomName()
 	{
+		String[] names = { "Rosy", "John", "Martin", "Steven", "Jamie", "Samantha", "Jessica", "Poly", "Cinderalla", "Molly"};
 		for(int i = 0;i<10;i++)
 		{
 			
