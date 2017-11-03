@@ -1,7 +1,9 @@
 package game;
 import person.Person;
+import person.Teen;
 public class Utilities {
 
+	
 	public static void printMap(int row, int column)
 	{
 		for(int i = 0;i<row;i++)
@@ -15,17 +17,31 @@ public class Utilities {
 	}
 	public static void updateMap(String personType, int row, int column, int x,int y)
 	{
+		
 		String[] Row = new String[row];
 		String[] Column = new String[column];
 		for(int i = 0;i<Row.length;i++)
 		{
 			for(int j = 0;j<Column.length;j++)
 			{
+				
 				Column[i] = "[ ]";
-				Column[y] = "[" + personType + "]";
+				//Column[y-1] = "[" + personType + "]";
+				 
 			}
+			
 			Row[i] = "[ ]";
 			Row[x] = "[" + personType + "]";
+			
+		}
+		
+		for(int i = 0;i<Row.length;i++)
+		{
+			for(int j = 0;j<Column.length;j++)
+			{
+				System.out.print(Column[i]);
+			}
+			System.out.println(Row[i]);
 		}
 	}
 	public static int getxcoord(int x)
@@ -52,5 +68,6 @@ public class Utilities {
 			System.out.println(instructions[i]);
 		}
 	}
+	
 	
 }
