@@ -14,14 +14,13 @@ import person.Child;
 public class Runner {
 	public static void main(String[]args)
 	{
-		boolean gameOn = true;
-		int scareLevel = 0;
+		/*boolean gameOn = true;
+		int scareLevel = 0;*/
 		Scanner player1 = new Scanner(System.in);
 		
-		while(gameOn)
-		{
+		
 			
-			greeting();
+			Utilities.greeting();
 			String name = player1.nextLine();
 			System.out.println("Welcome " + name + ". Here is the map that will forlay your doom");
 			Utilities.printMap(5,3);
@@ -39,7 +38,8 @@ public class Runner {
 				}
 				if((age<18)&&(age>13))
 				{
-					Teen player = new Teen(name,age);
+					
+					Teen player = new Teen("T",name,age,0,0);
 					System.out.println("You are " + age + " years old." + " You are a teen.");
 					System.out.println("Since you are a teen, you will be given two teens to accompany you. ");
 				}
@@ -48,7 +48,21 @@ public class Runner {
 					Child player = new Child(name,age);
 					System.out.print("You are a child");
 				}
-				System.out.println("Now let the games begin >:)");
+				
+				
+				 boolean gameOn = true;
+					int scareLevel = 0;
+					while(gameOn)
+					{
+						Utilities.giveinstructions();
+						String inputOne = player1.nextLine();
+						
+						scareLevel++;
+						if(scareLevel>0)
+						{
+							gameOn = false;
+						}
+					}
 				isInt = true;
 			 }
 			 catch(NumberFormatException e)
@@ -59,20 +73,22 @@ public class Runner {
 			 }
 			
 			
+			
 			}
-				scareLevel++;
-				if(scareLevel>0)
-				{
-					gameOn = false;
-				}
 			
+				
 			
-		}
+			//player1.close();
 		
+			
 	}
-	public static void greeting()
-	{
-		System.out.println("Welcome to Kaitlyn's Haunted House. Mwahahaha. If you dare to enter, you must give us your name");
-	}
+	
+		
+		
+		
+		
+	
+	
+
 
 }

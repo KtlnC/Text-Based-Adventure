@@ -1,5 +1,5 @@
 package game;
-
+import person.Person;
 public class Utilities {
 
 	public static void printMap(int row, int column)
@@ -13,13 +13,44 @@ public class Utilities {
 			System.out.println("[ ]");
 		}
 	}
-	public static void randomName()
+	public static void updateMap(String personType, int row, int column, int x,int y)
 	{
-		String[] names = { "Rosy", "John", "Martin", "Steven", "Jamie", "Samantha", "Jessica", "Poly", "Cinderalla", "Molly"};
-		for(int i = 0;i<10;i++)
+		String[] Row = new String[row];
+		String[] Column = new String[column];
+		for(int i = 0;i<Row.length;i++)
 		{
-			
+			for(int j = 0;j<Column.length;j++)
+			{
+				Column[i] = "[ ]";
+				Column[y] = "[" + personType + "]";
+			}
+			Row[i] = "[ ]";
+			Row[x] = "[" + personType + "]";
 		}
 	}
-
+	public static int getxcoord(int x)
+	{
+		return x;
+	}
+	public static int getycoord(int y)
+	{
+		return y;
+	}
+	public static String chooseMove(String s)
+	{
+		return s;
+	}
+	public static void greeting()
+	{
+		System.out.println("Welcome to Kaitlyn's Haunted House. Mwahahaha. If you dare to enter, you must give us your name");
+	}
+	public static void giveinstructions()
+	{
+		String[] instructions = {"Okay so here is how things are going to go","If you want to move north, type N", "If you want to move South, type S", "If you want to move West, type W","If you want to move East, type E", "If you are too chicken to much, well lets say bad things will happen","Enter at your own risk >:)."};
+		for(int i  = 0;i<instructions.length;i++)
+		{
+			System.out.println(instructions[i]);
+		}
+	}
+	
 }
