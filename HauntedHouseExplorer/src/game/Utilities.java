@@ -26,15 +26,16 @@ public class Utilities {
 			{
 				
 				Column[i] = "[ ]";
-			
+			   // 
 				 
 			}
 			
 			Row[i] = "[ ]";
-			Row[x] = "[" + personType + "]";
+			//
 			
 		}
-		
+		Row[x] = "[" + personType + "]";
+		//Column[y] = "[" + personType + "]";
 		for(int i = 0;i<Row.length;i++)
 		{
 			for(int j = 0;j<Column.length;j++)
