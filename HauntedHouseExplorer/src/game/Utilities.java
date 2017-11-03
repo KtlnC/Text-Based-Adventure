@@ -26,7 +26,7 @@ public class Utilities {
 			{
 				
 				Column[i] = "[ ]";
-				//Column[y-1] = "[" + personType + "]";
+			
 				 
 			}
 			

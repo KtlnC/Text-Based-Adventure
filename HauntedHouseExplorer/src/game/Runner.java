@@ -62,7 +62,30 @@ public class Runner {
 				
 				Utilities.giveinstructions();
 				System.out.println("Here is your starting point");
-				Utilities.updateMap("T",5,5,3,2);
+				int start = 3;
+				Utilities.updateMap("T",5,5,start,2);
+				boolean response = true;
+				while(response)
+				{
+				String nextresponse = player1.nextLine();
+				int counter = 0;
+				if(nextresponse.equals("N"))
+				{ 	counter ++;
+					Utilities.updateMap("T", 5, 5, start-=counter, 2);
+				}
+				if(nextresponse.equals("S"))
+				{
+					counter ++;
+					Utilities.updateMap("T", 5, 5, start+=counter, 2);
+				}
+				if(nextresponse.equals("W")||nextresponse.equals("E"))
+				{
+					System.out.println("You have reached the end of the tunnel.  You can hear the angels singing. Goodbye forever >:)");
+					response = false;
+					gameOn = false;
+				}
+				counter++;
+				}
 				
 				//String inputOne = player1.nextLine();
 						
