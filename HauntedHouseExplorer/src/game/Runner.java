@@ -63,7 +63,7 @@ public class Runner {
 				Utilities.giveinstructions();
 				System.out.println("Here is your starting point");
 				int start = 3;
-				Utilities.updateMap("T",5,5,start,2);
+				Utilities.updateMap("T",5,5,0,0);
 				boolean response = true;
 				while(response)
 				{
@@ -110,7 +110,7 @@ public class Runner {
 			
 	
 			
-			//player1.close();
+			player1.close();
 		
 			
 	}

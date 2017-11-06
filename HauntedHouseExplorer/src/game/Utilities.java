@@ -18,31 +18,16 @@ public class Utilities {
 	public static void updateMap(String personType, int row, int column, int x,int y)
 	{
 		
-		String[] Row = new String[row];
-		String[] Column = new String[column];
-		for(int i = 0;i<Row.length;i++)
+		String map[][] = new String[row][column+1];
+		for(int i = 0;i<map.length;i++) 
 		{
-			for(int j = 0;j<Column.length;j++)
+			for(int j = 0;j<map[i].length;j++)
 			{
-				
-				Column[i] = "[ ]";
-			   // 
-				 
+				map[i][j] = "[ ]";
+				map[x][y] = "[" + personType + "]";
+				System.out.print(map[i][j]);
 			}
-			
-			Row[i] = "[ ]";
-			//
-			
-		}
-		Row[x] = "[" + personType + "]";
-		//Column[y] = "[" + personType + "]";
-		for(int i = 0;i<Row.length;i++)
-		{
-			for(int j = 0;j<Column.length;j++)
-			{
-				System.out.print(Column[i]);
-			}
-			System.out.println(Row[i]);
+			System.out.println();;
 		}
 	}
 	public static int getxcoord(int x)
