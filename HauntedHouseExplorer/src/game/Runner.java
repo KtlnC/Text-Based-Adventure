@@ -81,13 +81,8 @@ public class Runner {
 				
 					System.out.print("You are a child");
 				}
-				if(player.getcharacter().equals("T"))
-				{
-					Utilities.extraplayers[0] = new Teen("T",name,age,0,0);
-					Utilities.extraplayers[1] = new Teen("T",name,age,0,0);
-				}
-				//player.print();
-			 
+				
+			
 					while(gameOn)
 					{
 						
@@ -99,103 +94,114 @@ public class Runner {
 						int x = player.getx();
 						int y = player.gety();
 						board1.updateMap(c,x,y);
-						boolean response = true;
-						int One = 1;
-						while(response)
+						if(player.getcharacter().equals("A"))
 						{
-							
-							String direction = player1.nextLine();
-							
-							if(direction.equals("W"))
-							{
-								board1.updateMap(c, x, y-One);
-								if((y<=0)||(y==1))
-								{
-									System.out.println("Dont you dare go there");
-									y++;
-								}
-								y--;
-								System.out.println(y);
-							}
-							if(direction.equals("E"))
-							{
-								board1.updateMap(c, x, y+One);
-								if(y==3)
-								{
-									System.out.println("Dont you dare go there");
-									y--;
-								}
-								y++;
-							}
-							
-							if(direction.equals("N"))
-							{
-								board1.updateMap(c, x-One, y);
-								if(x==1)
-								{
-									System.out.println("Dont you dare go there");
-									x++;
-								}
-								x--;
-								System.out.print(x);
-							}
-							if(direction.equals("S"))
-							{
-								board1.updateMap(c, x+One, y);
-								if(x==3)
-								{
-									System.out.println("Dont you dare go there");
-									x--;
-								}
-								x++;
-							}
-							if((x==Escapex)&&(y==Escapey))
+							boolean response = true;
+							int One = 1;
+							while(response)
 							{
 								
-								System.out.println("Congratz!You have escaped and survived!!");
-								response = false;
-							}
-							else
-							{
-								if((x==ghost1.getgX())&&(y==ghost1.getgY()))
+								String direction = player1.nextLine();
+								if((!direction.equals("W"))&&(!direction.equals("E"))&&(!direction.equals("N"))&&(!direction.equals("S")))
 								{
-									System.out.println("You have encountered a ghost! Do you choose to Die or Fight");
-									String playerchoice = player1.nextLine();
-									if(playerchoice.equals(choices[Choice]))
+									System.out.println("You have gone astray. You have been warned. Game over...");
+								}
+								if(direction.equals("W"))
+								{
+									board1.updateMap(c, x, y-One);
+									if((y<=0)||(y==1))
 									{
-										System.out.println("You have survived. Continue on your quest");
-										response = true;
+										System.out.println("Dont you dare go there");
+										y++;
 									}
-									else
+									y--;
+									System.out.println(Utilities.scaryscenarios());
+								}
+								if(direction.equals("E"))
+								{
+									board1.updateMap(c, x, y+One);
+									if(y==3)
 									{
-										System.out.println("Game over,you have died");
-										response = false;
+										System.out.println("Dont you dare go there");
+										y--;
 									}
-									//response = false;
-									//gameOn = false;
+									y++;
+									System.out.println(Utilities.scaryscenarios());
+								}
+								
+								if(direction.equals("N"))
+								{
+									board1.updateMap(c, x-One, y);
+									if(x==1)
+									{
+										System.out.println("Dont you dare go there");
+										x++;
+									}
+									x--;
+									System.out.println(Utilities.scaryscenarios());
+								}
+								if(direction.equals("S"))
+								{
+									board1.updateMap(c, x+One, y);
+									if(x==3)
+									{
+										System.out.println("Dont you dare go there");
+										x--;
+									}
+									x++;
+									System.out.println(Utilities.scaryscenarios());
+								}
+								if((x==Escapex)&&(y==Escapey))
+								{
+									
+									System.out.println("You have done it! The moment of truth has come! There is light! You will remain in this world till the next time we meet >:)");
+									response = false;
 								}
 								else
 								{
-									if((x==ghost2.getgX())&&(y==ghost2.getgY()))
+									if((x==ghost1.getgX())&&(y==ghost1.getgY()))
 									{
-										System.out.println("You have encountered a ghost! Do you choose to Die or Fight");
+										System.out.println("You have encountered a ghost - the lost souls have come and haunt you!!! To fight for your life, type  'fight', or 'Surrender'.  Perhaps if the Ghost is merciful enough it will let you live");
 										String playerchoice = player1.nextLine();
-										
-											if(playerchoice.equals(choices[Choice]))
-											{
-												System.out.println("You have survived. Continue on your quest");
-												response = true;
-												
-											}
-											else
-											{
+										if(playerchoice.equals(choices[Choice]))
+										{
+											System.out.println("You have survived. Continue on your quest for life or death >:)");
+											response = true;
+										}
+										else
+										{
+											System.out.println("There is light...This is a cruel world and it does not deserve you...Out you go...Down to... the dark side instead >:)");
+											response = false;
+										}
+										//response = false;
+										//gameOn = false;
+									}
+									else
+									{
+										if((x==ghost2.getgX())&&(y==ghost2.getgY()))
+										{
+											System.out.println("You have encountered a ghost - the lost souls have come and haunt you!!! To fight for your life, type  'fight', or 'Surrender'.  Perhaps if the Ghost is merciful enough it will let you live");
+											String playerchoice = player1.nextLine();
 											
-												System.out.println("Game over,you have died");
-												response = false;
-											}
-										
-										
-										
+												if(playerchoice.equals(choices[Choice]))
+												{
+													System.out.println("You have survived. Continue on your quest");
+													response = true;
+													
+												}
+												else
+												{
+												
+													System.out.println("You have survived. Continue on your quest for life or death >:)");
+													response = false;
+												}
+											
+											
+										}
+										else
+										{
+											gameOn = false;
+										}
 									}
 								}
 							}
