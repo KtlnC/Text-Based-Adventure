@@ -1,5 +1,7 @@
 package person;
 
+import floors.FirstFloor;
+
 public abstract class Person {
 
 	private String name;
@@ -14,18 +16,11 @@ public abstract class Person {
 		this.y = y;
 		this.character = character;
 	}
+	public abstract int getx();
+	public abstract int gety();
+	public abstract String getcharacter();
+	public abstract void print();
+
 	
-	public int getx()
-	{
-		return x;
-	}
-	public int gety()
-	{
-		return y;
-	}
-	public String getcharacter()
-	{
-		return character;
-	}
 	
 }
