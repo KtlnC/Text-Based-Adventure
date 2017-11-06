@@ -62,29 +62,46 @@ public class Runner {
 				
 				Utilities.giveinstructions();
 				System.out.println("Here is your starting point");
-				int start = 3;
+				int start1 = 0;
+				int start2 = 0;
+				int counter = 1;
 				Utilities.updateMap("T",5,5,0,0);
 				boolean response = true;
 				while(response)
 				{
 				String nextresponse = player1.nextLine();
-				int counter = 0;
+				
 				if(nextresponse.equals("N"))
-				{ 	counter ++;
-					Utilities.updateMap("T", 5, 5, start-=counter, 2);
+				{ 	
+					Utilities.updateMap("T", 5, 5, start1-=counter, start2);
+					if(start1>=4)
+					{
+						System.out.println("Invalid Move");
+					}
 				}
 				if(nextresponse.equals("S"))
 				{
-					counter ++;
-					Utilities.updateMap("T", 5, 5, start+=counter, 2);
+					
+					Utilities.updateMap("T", 5, 5, start1+=counter, start2);
+					if(start1>=4)
+					{
+						System.out.println("Invalid Move");
+						System.out.println("You have reached the peripheral of this house.  Your life ends here >:(");
+						response = false;
+					}
 				}
-				if(nextresponse.equals("W")||nextresponse.equals("E"))
+				if(nextresponse.equals("W"))
 				{
-					System.out.println("You have reached the end of the tunnel.  You can hear the angels singing. Goodbye forever >:)");
-					response = false;
-					gameOn = false;
+				
+					Utilities.updateMap("T", 5, 5, start1, start2-=counter);
+					
+					
 				}
-				counter++;
+				if(nextresponse.equals("E"))
+				{
+					
+					Utilities.updateMap("T", 5, 5, start1, start2+=counter);
+				}
 				}
 				
 				//String inputOne = player1.nextLine();
