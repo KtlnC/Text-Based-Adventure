@@ -19,18 +19,22 @@ import floors.Attic;
 public class Runner {
 	public static void main(String[]args)
 	{
-		int Choice = Utilities.randomWithRange(1, 2);
+		int Choice = Utilities.randomWithRange(0, 1);
+		String[] choices = {"Fight", "Die"};
+		int Escapex = Utilities.randomWithRange(1, 4);
+		int Escapey = Utilities.randomWithRange(1, 4);
 		int ghostx = Utilities.randomWithRange(1, 4);
 		int ghosty = Utilities.randomWithRange(1, 4);
 		int ghostx1 = Utilities.randomWithRange(1, 4);
 		int ghosty1= Utilities.randomWithRange(1, 4);
 		Ghost ghost1 = new Ghost(ghostx,ghosty);
 		Ghost ghost2 = new Ghost(ghostx1,ghosty1);
+		/*
 		System.out.println(Choice);
 		System.out.println(ghost1.getgX());
 		System.out.println(ghost1.getgY());
 		System.out.println(ghost2.getgX());
-		System.out.println(ghost2.getgY());
+		System.out.println(ghost2.getgY());*/
 		Board board1 = new Board(5,5);
 		boolean gameOn = true;
 		int scareLevel = 0;
@@ -67,6 +71,7 @@ public class Runner {
 					
 					System.out.println("You are " + age + " years old." + " You are a teen.");
 					System.out.println("Since you are a teen, you will be given two teens to accompany you. ");
+					
 				}
 				if((age<13))
 				{
@@ -74,7 +79,12 @@ public class Runner {
 				
 					System.out.print("You are a child");
 				}
-				player.print();
+				if(player.getcharacter().equals("T"))
+				{
+					Utilities.extraplayers[0] = new Teen("T",name,age,0,0);
+					Utilities.extraplayers[1] = new Teen("T",name,age,0,0);
+				}
+				//player.print();
 			 
 					while(gameOn)
 					{
@@ -82,6 +92,7 @@ public class Runner {
 						Utilities.giveinstructions();
 						System.out.println("Here is your starting point");
 						String c = player.getcharacter();
+						
 						
 						int x = player.getx();
 						int y = player.gety();
@@ -138,14 +149,41 @@ public class Runner {
 							}
 							if((x==ghost1.getgX())&&(y==ghost1.getgY()))
 							{
-								
-								response = false;
-								gameOn = false;
+								System.out.println("You have encountered a ghost! Do you choose to Die or Fight");
+								String playerchoice = player1.nextLine();
+								if(playerchoice.equals(choices[Choice]))
+								{
+									System.out.println("You have survived. Continue on your quest");
+									response = true;
+								}
+								else
+								{
+									System.out.println("Game over,you have died");
+									response = false;
+								}
+								//response = false;
+								//gameOn = false;
 							}
 							if((x==ghost2.getgX())&&(y==ghost2.getgY()))
 							{
+								System.out.println("You have encountered a ghost! Do you choose to Die or Fight");
+								String playerchoice = player1.nextLine();
+								if(playerchoice.equals(choices[Choice]))
+								{
+									System.out.println("You have survived. Continue on your quest");
+									response = true;
+									
+								}
+								else
+								{
+									System.out.println("Game over,you have died");
+									response = false;
+								}
+							}
+							if((x==Escapex)&&(y==Escapey))
+							{
 								response = false;
-								gameOn = false;
+								System.out.println("congradulations! You have survived and won the game");
 							}
 							
 						}

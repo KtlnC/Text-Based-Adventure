@@ -1,5 +1,7 @@
 package game;
 
+import person.Person;
+
 public class Utilities {
 	
 	public static void greeting()
@@ -19,6 +21,8 @@ public class Utilities {
 	   int range = (max - min) + 1;     
 	   return (int)(Math.random() * range) + min;
 	}
+	
+	public static Person[] extraplayers = new Person[5];
 
 	
 	

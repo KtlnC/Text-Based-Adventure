@@ -17,6 +17,7 @@ public class Child extends Person{
 	{
 		return y;
 	}
+	
 	public int updateX(int counter)
 	{
 		return counter+=x;
