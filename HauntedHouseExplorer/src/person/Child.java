@@ -17,9 +17,17 @@ public class Child extends Person{
 	{
 		return y;
 	}
+	public int updateX(int counter)
+	{
+		return counter+=x;
+	}
+	public int updateY(int counter)
+	{
+		return counter+=y;
+	}
 	public String getcharacter()
 	{
-		return character;
+		return "C";
 	}
 	public void print()
 	{

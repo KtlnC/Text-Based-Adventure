@@ -8,6 +8,7 @@ import person.Teen;
 import person.Child;
 import person.Person;
 import person.Entity;
+import person.Ghost;
 import board.Board;
 import floors.Attic;
 /**
@@ -18,16 +19,30 @@ import floors.Attic;
 public class Runner {
 	public static void main(String[]args)
 	{
+		int Choice = Utilities.randomWithRange(1, 2);
+		int ghostx = Utilities.randomWithRange(1, 4);
+		int ghosty = Utilities.randomWithRange(1, 4);
+		int ghostx1 = Utilities.randomWithRange(1, 4);
+		int ghosty1= Utilities.randomWithRange(1, 4);
+		Ghost ghost1 = new Ghost(ghostx,ghosty);
+		Ghost ghost2 = new Ghost(ghostx1,ghosty1);
+		System.out.println(Choice);
+		System.out.println(ghost1.getgX());
+		System.out.println(ghost1.getgY());
+		System.out.println(ghost2.getgX());
+		System.out.println(ghost2.getgY());
 		Board board1 = new Board(5,5);
 		boolean gameOn = true;
 		int scareLevel = 0;
 		Scanner player1 = new Scanner(System.in);
 		
-			Entity ghost1 = new Entity(3,2);
-			
+		
+		
 			Utilities.greeting();
 			String name = player1.nextLine();
+			
 			System.out.println("Welcome " + name + ". Here is the map that will forlay your doom");
+	
 			board1.printmap();
 			
 			boolean isInt = false;
@@ -66,8 +81,74 @@ public class Runner {
 						
 						Utilities.giveinstructions();
 						System.out.println("Here is your starting point");
-						board1.updateMap(player.getcharacter(),player.getx(),player.gety());
+						String c = player.getcharacter();
 						
+						int x = player.getx();
+						int y = player.gety();
+						board1.updateMap(c,x,y);
+						boolean response = true;
+						int One = 1;
+						while(response)
+						{
+							
+							String direction = player1.nextLine();
+							
+							if(direction.equals("W"))
+							{
+								board1.updateMap(c, x, y-One);
+								if((y<=0)||(y==1))
+								{
+									System.out.println("Dont you dare go there");
+									y++;
+								}
+								y--;
+								System.out.println(y);
+							}
+							if(direction.equals("E"))
+							{
+								board1.updateMap(c, x, y+One);
+								if(y==3)
+								{
+									System.out.println("Dont you dare go there");
+									y--;
+								}
+								y++;
+							}
+							
+							if(direction.equals("N"))
+							{
+								board1.updateMap(c, x-One, y);
+								if(x==1)
+								{
+									System.out.println("Dont you dare go there");
+									x++;
+								}
+								x--;
+								System.out.print(x);
+							}
+							if(direction.equals("S"))
+							{
+								board1.updateMap(c, x+One, y);
+								if(x==3)
+								{
+									System.out.println("Dont you dare go there");
+									x--;
+								}
+								x++;
+							}
+							if((x==ghost1.getgX())&&(y==ghost1.getgY()))
+							{
+								
+								response = false;
+								gameOn = false;
+							}
+							if((x==ghost2.getgX())&&(y==ghost2.getgY()))
+							{
+								response = false;
+								gameOn = false;
+							}
+							
+						}
 						
 							
 						
@@ -100,16 +181,6 @@ public class Runner {
 			
 	}
 	
-		
-	/*public static Object createPerson(String character, String name, int age, int x, int y)
-	{
-		if(character.equals("T"))
-		{ 
-			Teen teen = new Teen(character,name,age,x,y);
-		}
-		
-		
-	}*/
 	}
 		
 		

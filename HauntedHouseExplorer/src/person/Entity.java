@@ -1,6 +1,6 @@
 package person;
 
-public class Entity {
+public  class Entity {
 
 	private int x,y;
 	public Entity(int x,int y)

@@ -20,7 +20,7 @@ public class Teen extends Person{
 	}
 	public String getcharacter()
 	{
-		return character;
+		return "T";
 	}
 	public void print()
 	{

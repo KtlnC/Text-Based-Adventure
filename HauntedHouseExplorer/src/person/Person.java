@@ -20,7 +20,7 @@ public abstract class Person {
 	public abstract int gety();
 	public abstract String getcharacter();
 	public abstract void print();
-
+	
 	
 	
 }
