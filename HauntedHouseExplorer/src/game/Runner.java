@@ -94,8 +94,7 @@ public class Runner {
 						int x = player.getx();
 						int y = player.gety();
 						board1.updateMap(c,x,y);
-						if(player.getcharacter().equals("A"))
-						{
+					
 							boolean response = true;
 							int One = 1;
 							while(response)
@@ -208,7 +207,7 @@ public class Runner {
 							
 							
 							
-						}
+						
 						
 							
 						
