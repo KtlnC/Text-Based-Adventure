@@ -23,8 +23,8 @@ public class Runner {
 		String[] choices = {"Fight", "Die"};
 		int Escapex = Utilities.randomWithRange(1, 3);
 		int Escapey = Utilities.randomWithRange(1, 3);
-		System.out.println(Escapex);
-		System.out.println(Escapey);
+		//System.out.println(Escapex);
+		//System.out.println(Escapey);
 		int ghostx = Utilities.randomWithRange(1, 3);
 		int ghosty = Utilities.randomWithRange(1, 3);
 		int ghostx1 = Utilities.randomWithRange(1, 3);
@@ -32,11 +32,11 @@ public class Runner {
 		Ghost ghost1 = new Ghost(ghostx,ghosty);
 		Ghost ghost2 = new Ghost(ghostx1,ghosty1);
 		
-		System.out.println(Choice);
+		/*System.out.println(Choice);
 		System.out.println(ghost1.getgX());
 		System.out.println(ghost1.getgY());
 		System.out.println(ghost2.getgX());
-		System.out.println(ghost2.getgY());
+		System.out.println(ghost2.getgY());*/
 		Board board1 = new Board(5,5);
 		boolean gameOn = true;
 		int scareLevel = 0;
